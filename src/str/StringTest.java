@@ -13,5 +13,7 @@ public class StringTest {
         System.out.println(Arrays.toString(a.split("\\|")));
         System.out.println(Arrays.toString(b.split("\\|")));
         System.out.println(Arrays.toString(b.split("|")));
+        System.out.println(b.contains("|"));
+        System.out.println(b.contains("\\|"));
     }
 }

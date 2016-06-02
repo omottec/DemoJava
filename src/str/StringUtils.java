@@ -30,6 +30,19 @@ public class StringUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(str2Hex(ALPHABET));
+//        System.out.println(str2Hex(ALPHABET));
+        testStringBuilderLength();
+    }
+
+    private static void testStringBuilderLength() {
+        StringBuilder sb = new StringBuilder("aBcd");
+        System.out.println(sb.length());
+        for (int i = 0; i < sb.length(); i++) {
+            if (Character.isUpperCase(sb.charAt(i))) {
+                sb.insert(i, "_");
+                System.out.println(sb.length());
+                i++;
+            }
+        }
     }
 }

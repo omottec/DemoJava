@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Created by qinbingbing on 6/29/16.
  */
 public class VolatileBooleanTest {
-    public static final int THREAD_NUM = 1000;
+    public static final int THREAD_NUM = 10;
     private volatile boolean b;
     private CountDownLatch latch = new CountDownLatch(THREAD_NUM);
 
@@ -19,7 +19,6 @@ public class VolatileBooleanTest {
             e.printStackTrace();
         }
         b = signal;
-        latch.countDown();
         System.out.println(Thread.currentThread());
     }
 
@@ -30,7 +29,9 @@ public class VolatileBooleanTest {
             new Thread() {
                 @Override
                 public void run() {
-                    test.reverse((finalI % 2 == 0));
+                    for (int j = 0; j < 1000; j++)
+                        test.reverse((j % 2 == 0));
+                    test.latch.countDown();
                 }
             }.start();
         }

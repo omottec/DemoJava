@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * Created by qinbingbing on 6/29/16.
  */
 public class StaticVolatileIntTest {
-    public static final int THREAD_NUM = 1000;
+    public static final int THREAD_NUM = 10;
     public static volatile int count = 0;
     private static CountDownLatch downLatch = new CountDownLatch(THREAD_NUM);
 
@@ -20,7 +20,6 @@ public class StaticVolatileIntTest {
             e.printStackTrace();
         }
         count++;
-        downLatch.countDown();
         System.out.println(Thread.currentThread());
     }
 
@@ -29,7 +28,9 @@ public class StaticVolatileIntTest {
             new Thread() {
                 @Override
                 public void run() {
-                    inc();
+                    for (int i = 0; i < 1000; i++)
+                        inc();
+                    downLatch.countDown();
                 }
             }.start();
         downLatch.await();

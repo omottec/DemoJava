@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  * Created by qinbingbing on 6/29/16.
  */
 public class VolatileIntTest {
-    public static final int THREAD_NUM = 1000;
+    public static final int THREAD_NUM = 10;
     private volatile int count;
     private CountDownLatch latch = new CountDownLatch(THREAD_NUM);
 
@@ -18,7 +18,6 @@ public class VolatileIntTest {
             e.printStackTrace();
         }
         count++;
-        latch.countDown();
         System.out.println(Thread.currentThread());
     }
 
@@ -28,7 +27,9 @@ public class VolatileIntTest {
             new Thread() {
                 @Override
                 public void run() {
-                    test.inc();
+                    for (int i = 0; i < 1000; i++)
+                        test.inc();
+                    test.latch.countDown();
                 }
             }.start();
         }

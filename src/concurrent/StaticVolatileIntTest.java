@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by qinbingbing on 6/29/16.
  */
-public class StaticVolatileTest {
+public class StaticVolatileIntTest {
     public static final int THREAD_NUM = 1000;
     public static volatile int count = 0;
     private static CountDownLatch downLatch = new CountDownLatch(THREAD_NUM);

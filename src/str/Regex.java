@@ -7,9 +7,14 @@ import java.util.regex.Pattern;
  * Created by qinbingbing on 5/17/16.
  */
 public class Regex {
+    private static final String TOKEN = "([^ \"=]*)";
+    private static final String QUOTED_STRING = "\"([^\"]*)\"";
+    private static final Pattern PARAMETER
+            = Pattern.compile(" +" + TOKEN + "=(:?" + QUOTED_STRING + "|" + TOKEN + ") *(:?,|$)");
+    public static final Pattern IPV4 = Pattern.compile("[\\d.]+");
 
     public static void main(String[] args) {
-        test1();
+        testIpv4();
     }
 
     private static void test() {
@@ -41,4 +46,20 @@ public class Regex {
         System.out.println(str);
     }
 
+    private static void testQuotedString() {
+        System.out.println("\"aaa\"".matches(QUOTED_STRING));
+        System.out.println("\"\"".matches(QUOTED_STRING));
+    }
+
+    private static void testToken() {
+        System.out.println("".matches(TOKEN));
+        System.out.println("a".matches(TOKEN));
+        System.out.println("=".matches(TOKEN));
+        System.out.println("\"".matches(TOKEN));
+        System.out.println(" ".matches(TOKEN));
+    }
+
+    private static void testIpv4() {
+        System.out.println(IPV4.matcher("172.21.32.10").matches());
+    }
 }

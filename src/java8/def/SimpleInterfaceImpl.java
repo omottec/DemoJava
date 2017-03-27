@@ -1,4 +1,4 @@
-package java8;
+package java8.def;
 
 /**
  * Created by qinbingbing on 12/21/16.

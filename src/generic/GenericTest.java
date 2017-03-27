@@ -11,14 +11,15 @@ import java.util.List;
  */
 public class GenericTest {
     public static void main(String[] args) {
-        List<? super Teacher> list = new ArrayList<>();
-        list.add(new Teacher());
-//        list.add(new Person());
-        Object object = list.get(0);
+        List<? super Teacher> superTeacher = new ArrayList<>();
+        superTeacher.add(new Teacher());
+//        superTeacher.add(new Person());
+        Object object = superTeacher.get(0);
 
-        List<? extends Person> list1 = new ArrayList<>();
-//        list1.add(new Teacher());
-        Person person = list1.get(0);
+        List<? extends Person> extendsPerson = new ArrayList<>();
+//        extendsPerson.add(new Teacher());
+//        extendsPerson.add(new Person());
+        Person person = extendsPerson.get(0);
 
         List<Teacher> teachers = new ArrayList<>();
         teachers.add(new Teacher());
@@ -26,24 +27,40 @@ public class GenericTest {
         List<Person> persons = new ArrayList<>();
         persons.add(new Person());
 
+        printTeacher(teachers);
+//        printTeacher(persons);
+//        printTeacher(superTeacher);
+//        printTeacher(extendsPerson);
 
+//        printPerson(teachers);
+        printPerson(persons);
+//        printPerson(extendsPerson);
+//        printPerson(superTeacher);
 
-        print(persons);
-        print(teachers);
-        print(list);
+        printSuperTeacher(persons);
+        printSuperTeacher(teachers);
+        printSuperTeacher(superTeacher);
+//        printSuperTeacher(extendsPerson);
 
-        print1(teachers);
-//        print1(persons);
-
+        printExtendsPerson(teachers);
+        printExtendsPerson(persons);
+        printExtendsPerson(extendsPerson);
+//        printExtendsPerson(superTeacher);
     }
 
 
-    private static void print(List<? super Teacher> list) {
+    private static void printTeacher(List<Teacher> teachers) {
 
     }
 
-    private static void print1(List<Teacher> list) {
+    private static void printPerson(List<Person> persons) {
 
     }
+
+    private static void printSuperTeacher(List<? super Teacher> list) {
+
+    }
+
+    private static void printExtendsPerson(List<? extends Person> list) {};
 
 }

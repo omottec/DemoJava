@@ -1,4 +1,4 @@
-package test.integer;
+package integer;
 
 import junit.framework.TestCase;
 import org.junit.Test;

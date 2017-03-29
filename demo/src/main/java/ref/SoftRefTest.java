@@ -3,8 +3,6 @@ package ref;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
-import java.lang.ref.WeakReference;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by qinbingbing on 4/5/16.

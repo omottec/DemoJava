@@ -1,6 +1,5 @@
 package nullTest;
 
-import model.Person;
 import model.Pet;
 
 /**

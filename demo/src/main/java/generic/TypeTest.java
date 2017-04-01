@@ -12,13 +12,13 @@ public class TypeTest<T> {
     public TypeTest() {}
     public <E> TypeTest(E e) {}
     public Map<T, String> genericField;
-    public <B> Map<Integer, String>[] genericMethod(List<? extends Integer> list,List<String> list1,
+    public <B> Map<Integer, String>[] genericMethod(List<? extends Integer> list, List<String> list1,
                                                     String str, B[] tArr) {
         return null;
     }
 
     public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException {
-        Class<TypeTest> clazz = TypeTest.class;
+        Class<?> clazz = TypeTest.class;
         System.out.println("Generic Field");
         Field field = clazz.getField("genericField");
         actualType(field.getGenericType());
@@ -51,18 +51,18 @@ public class TypeTest<T> {
             System.out.println("type is WildcardType");
         } else if (type instanceof Class) {
             Class<?> c = (Class<?>) type;
-            System.out.println(String.format("type is Class %s", c.getCanonicalName()));
+            System.out.println(String.format("type is %s", c));
         } else if (type instanceof ParameterizedType) {
             System.out.println("type is ParameterizedType");
             ParameterizedType t = (ParameterizedType) type;
             Type[] actualTypeArguments = t.getActualTypeArguments();
             for (int i = 0; i < actualTypeArguments.length; i++) {
                 if (actualTypeArguments[i] instanceof TypeVariable) {
-                    System.out.println(String.format("arg %d is TypeVariable %s", i, actualTypeArguments[i]));
+                    System.out.println(String.format("ActualTypeArgument %d is TypeVariable %s", i, actualTypeArguments[i]));
                 } else if (actualTypeArguments[i] instanceof WildcardType) {
-                    System.out.println(String.format("arg %d is WildcardType %s", i, actualTypeArguments[i]));
+                    System.out.println(String.format("ActualTypeArgument %d is WildcardType %s", i, actualTypeArguments[i]));
                 } else if (actualTypeArguments[i] instanceof Class) {
-                    System.out.println(String.format("arg %d is Class %s", i, ((Class)actualTypeArguments[i]).getCanonicalName()));
+                    System.out.println(String.format("ActualTypeArgument %d is %s", i, actualTypeArguments[i]));
                 }
             }
         } else if (type instanceof GenericArrayType) {

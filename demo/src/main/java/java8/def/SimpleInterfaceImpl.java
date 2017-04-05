@@ -11,13 +11,13 @@ public class SimpleInterfaceImpl implements SimpleInterface {
     }
 
     @Override
-    public void doSomeOtherWork() {
-        System.out.println("doSomeOtherWork in SimpleInterfaceImpl");
+    public void defaultMethod() {
+        System.out.println("defaultMethod in SimpleInterfaceImpl");
     }
 
     public static void main(String[] args) {
         SimpleInterface si = new SimpleInterfaceImpl();
         si.doSomeWork();
-        si.doSomeOtherWork();
+        si.defaultMethod();
     }
 }

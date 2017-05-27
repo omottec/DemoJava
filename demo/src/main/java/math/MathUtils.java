@@ -8,8 +8,11 @@ public final class MathUtils {
 
     public static String getTrimmedValue(double d) {
         String s = String.valueOf(d);
-        while (!"".equals(s) && (s.charAt(s.length() - 1) == '0' || s.charAt(s.length() - 1) == '.'))
-            s = s.substring(0, s.length() - 1);
+        if (!s.contains(".")) return s;
+        while (s.charAt(s.length()-1) == '0')
+            s = s.substring(0, s.length()-1);
+        if (s.charAt(s.length()-1) == '.')
+            return s.substring(0, s.length() - 1);
         if ("".equals(s)) return String.valueOf("0");
         return s;
     }

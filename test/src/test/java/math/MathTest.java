@@ -70,4 +70,11 @@ public class MathTest extends TestCase {
         System.out.println(new BigDecimal(".1").stripTrailingZeros());
         System.out.println(new BigDecimal(".0").stripTrailingZeros());
     }
+
+    @Test
+    public void testDiv() {
+        System.out.println((double) 34207 / 100);
+        System.out.println((double) 34288 / 100);
+        System.out.println(BigDecimal.valueOf(34288).divide(BigDecimal.valueOf(100)).doubleValue());
+    }
 }

@@ -46,7 +46,7 @@ public class LambdaTest {
         Map<String, Integer> oldWordCounts = new HashMap<String, Integer>();
         Map<String, Integer> diamondWordCounts = new HashMap<>();
 
-        Predicate<Integer> atLeast5 = x -> x > 5;
+        Predicate<Integer> atLeast5 = x -> x >= 5;
 
         BinaryOperator<Long> addLongs = (x, y) -> x + y;
 

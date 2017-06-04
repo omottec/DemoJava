@@ -19,5 +19,7 @@ public class SimpleInterfaceImpl implements SimpleInterface {
         SimpleInterface si = new SimpleInterfaceImpl();
         si.doSomeWork();
         si.defaultMethod();
+        SimpleInterface.staticMethod();
+        PlainInterface.staticMethod();
     }
 }

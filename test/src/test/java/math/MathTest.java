@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  */
 public class MathTest extends TestCase {
     @Test
-    public void testFloatBit() {
+    public void testGetTrimmedValue() {
         System.out.println(getTrimmedValue(123.45));
         System.out.println(getTrimmedValue(123.40));
         System.out.println(getTrimmedValue(123.00));
@@ -28,6 +28,25 @@ public class MathTest extends TestCase {
         System.out.println(getTrimmedValue(0));
     }
 
+    @Test
+    public void testGetTrimmedValue1() {
+        System.out.println(getTrimmedValue1(123.45));
+        System.out.println(getTrimmedValue1(123.40));
+        System.out.println(getTrimmedValue1(123.00));
+        System.out.println(getTrimmedValue1(123.4));
+        System.out.println(getTrimmedValue1(123.0));
+        System.out.println(getTrimmedValue1(123.));
+        System.out.println(getTrimmedValue1(123));
+        System.out.println("--------------");
+        System.out.println(getTrimmedValue1(0.12));
+        System.out.println(getTrimmedValue1(0.10));
+        System.out.println(getTrimmedValue1(0.00));
+        System.out.println(getTrimmedValue1(0.1));
+        System.out.println(getTrimmedValue1(0.0));
+        System.out.println(getTrimmedValue1(0.));
+        System.out.println(getTrimmedValue1(0));
+    }
+
 
 
     private String getTrimmedValue(double d) {
@@ -38,6 +57,15 @@ public class MathTest extends TestCase {
         if (s.charAt(s.length()-1) == '.')
             return s.substring(0, s.length() - 1);
         if ("".equals(s)) return String.valueOf("0");
+        return s;
+    }
+
+    private String getTrimmedValue1(double d) {
+        String s = String.valueOf(d);
+        if (s.indexOf(".") > 0) {
+            s = s.replaceAll("0+?$", "");
+            s = s.replaceAll("[.]$", "");
+        }
         return s;
     }
 
@@ -69,6 +97,13 @@ public class MathTest extends TestCase {
         System.out.println(new BigDecimal("0.0").stripTrailingZeros());
         System.out.println(new BigDecimal(".1").stripTrailingZeros());
         System.out.println(new BigDecimal(".0").stripTrailingZeros());
+        System.out.println(new BigDecimal(8.3).stripTrailingZeros());
+
+        BigDecimal decimal = BigDecimal.valueOf(2000)
+                .divide(BigDecimal.valueOf(100))
+                .subtract(new BigDecimal("11.7"));
+        System.out.println(String.format("差&#165;%s可送", decimal.stripTrailingZeros()));
+
     }
 
     @Test

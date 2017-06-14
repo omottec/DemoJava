@@ -12,4 +12,11 @@ public class NullTest extends TestCase {
         String str = (String)null;
         System.out.println("aaa" + str);
     }
+
+    @Test
+    public void testIf() {
+        if (1 == 2)
+        System.out.println("in if");
+        System.out.println("out if");
+    }
 }

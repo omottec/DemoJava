@@ -17,6 +17,6 @@ public class MyDate extends Date {
 
     @Override
     public String toString() {
-        return "obj [Date: " + this.getTime() + "]";
+        return "MyDate[Time: " + this.getTime() + "]";
     }
 }

@@ -12,17 +12,15 @@ public class PhantomRefTest {
     public static void main(String[] args) {
         ReferenceQueue<MyDate> refQueue = new ReferenceQueue<MyDate>();
         PhantomReference<MyDate> ref = new PhantomReference<MyDate>(new MyDate(), refQueue);
-        System.out.println("new ref: " + ref);
+        System.out.println("ref: " + ref + ", ref.get:" + ref.get());
         Reference<? extends MyDate> polledRef;
         try {
             for (int i = 0; i < 5; i++) {
-                TimeUnit.MILLISECONDS.sleep(100);
                 System.gc();
+                TimeUnit.MILLISECONDS.sleep(100);
                 while ((polledRef = refQueue.poll()) != null) {
                     System.out.println("i: " + i);
-                    System.out.println("queue poll ref: " + polledRef);
-                    MyDate myDate = polledRef.get();
-                    System.out.println("ref get: " + myDate);
+                    System.out.println("polledRef: " + polledRef + ", polledRef.get:" + polledRef.get());
                 }
             }
         } catch (InterruptedException e) {

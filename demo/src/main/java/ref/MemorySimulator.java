@@ -11,12 +11,14 @@ public final class MemorySimulator {
     }
 
     public static void asyncDrainMemory() {
-        Executors.newSingleThreadExecutor().submit(new Runnable() {
-            @Override
-            public void run() {
-                drainMemory();
-            }
-        });
+        for (int i = 0; i < 10; i++) {
+            Executors.newSingleThreadExecutor().submit(new Runnable() {
+                @Override
+                public void run() {
+                    drainMemory();
+                }
+            });
+        }
     }
     
     public static void drainMemory() {

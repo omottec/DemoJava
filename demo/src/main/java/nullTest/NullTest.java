@@ -9,6 +9,8 @@ public class NullTest {
     public static void main(String[] args) {
         Object obj = null;
         Pet pet = (Pet)obj;
+        System.out.println(obj);
         System.out.println(pet);
+        System.out.println("prefix " + obj);
     }
 }

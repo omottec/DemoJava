@@ -8,6 +8,10 @@ import java.util.List;
  */
 public class ListTest {
     public static void main(String[] args) {
+        testModify();
+    }
+
+    private static void testRemove() {
         List<String> strs = new ArrayList<>();
         for(int i = 0; i < 5; i++)
             strs.add(i + "");
@@ -16,4 +20,16 @@ public class ListTest {
         strs.remove(1);
         System.out.println(strs);
     }
+
+    private static void testModify() {
+        List<String> strs = new ArrayList<>();
+        for(int i = 0; i < 5; i++)
+            strs.add(i + "");
+        for (int i = 0; i < strs.size(); i++) {
+            System.out.println(strs.get(i));
+            strs.remove(i);
+            System.out.println(strs);
+        }
+    }
+
 }

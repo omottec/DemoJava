@@ -12,5 +12,11 @@ public class NullTest {
         System.out.println(obj);
         System.out.println(pet);
         System.out.println("prefix " + obj);
+
+        int i = 2;
+        Integer integer = null;
+        System.out.println(i + " " + integer);
+        i = integer;
+        System.out.println(i + " " + integer);
     }
 }

@@ -11,9 +11,17 @@ import java.util.List;
  */
 public class GenericTest {
     public static void main(String[] args) {
+        List noGenericList = new ArrayList();
+        noGenericList.add(new Object());
+        noGenericList.add(new Teacher());
+        noGenericList.add(new Person());
+
         List<Object> objectList = new ArrayList<>();
         objectList.add(new Person());
         objectList.add(new Teacher());
+
+        List<Teacher> teacherList = new ArrayList<>();
+        teacherList.add(new Teacher());
 
         List<Person> personList = new ArrayList<>();
         personList.add(new Person());
@@ -29,44 +37,47 @@ public class GenericTest {
 //        extendsPerson.add(new Teacher());
         Person person = extendsPerson.get(0);
 
-        List<Teacher> teacherList = new ArrayList<>();
-        teacherList.add(new Teacher());
-
         printTeacher(teacherList);
 //        printTeacher(personList);
 //        printTeacher(objectList);
+        printTeacher(noGenericList);
 //        printTeacher(superTeacher);
 //        printTeacher(extendsPerson);
 
 //        printPerson(teacherList);
         printPerson(personList);
 //        printPerson(objectList);
-//        printPerson(extendsPerson);
+        printPerson(noGenericList);
 //        printPerson(superTeacher);
+//        printPerson(extendsPerson);
 
+        printSuperTeacher(teacherList);
         printSuperTeacher(personList);
         printSuperTeacher(objectList);
-        printSuperTeacher(teacherList);
+        printSuperTeacher(noGenericList);
         printSuperTeacher(superTeacher);
 //        printSuperTeacher(extendsPerson);
 
         printExtendsPerson(teacherList);
         printExtendsPerson(personList);
 //        printExtendsPerson(objectList);
-        printExtendsPerson(extendsPerson);
+        printExtendsPerson(noGenericList);
 //        printExtendsPerson(superTeacher);
+        printExtendsPerson(extendsPerson);
 
 //        printObject(teacherList);
 //        printObject(personList);
         printObject(objectList);
+        printObject(noGenericList);
 //        printObject(superTeacher);
 //        printObject(extendsPerson);
 
         printNoGenericList(teacherList);
         printNoGenericList(personList);
         printNoGenericList(objectList);
-        printNoGenericList(extendsPerson);
+        printNoGenericList(noGenericList);
         printNoGenericList(superTeacher);
+        printNoGenericList(extendsPerson);
     }
 
 

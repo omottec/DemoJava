@@ -5,7 +5,7 @@ package control;
  */
 public class IfElseTest {
     public static void main(String[] args) {
-        int a = 3;
+        int a = 4;
         if (a > 5) {
             System.out.println("a > 5");
         } else if (a > 4) {

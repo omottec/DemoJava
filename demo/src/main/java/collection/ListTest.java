@@ -1,6 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  */
 public class ListTest {
     public static void main(String[] args) {
-        testModify();
+        testToArray();
     }
 
     private static void testRemove() {
@@ -30,6 +31,14 @@ public class ListTest {
             strs.remove(i);
             System.out.println(strs);
         }
+    }
+
+    private static void testToArray() {
+        List<String> list = new ArrayList<>();
+        String[] strs = list.toArray(new String[list.size()]);
+        System.out.println(strs);
+        System.out.println(Arrays.toString(strs));
+        System.out.println(strs.length == 0);
     }
 
 }

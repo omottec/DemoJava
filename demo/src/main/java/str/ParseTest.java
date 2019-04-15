@@ -6,5 +6,7 @@ package str;
 public class ParseTest {
     public static void main(String[] args) {
         long l = Long.parseLong("0");
+        System.out.println(String.valueOf(0));
+        System.out.println(String.valueOf(-1));
     }
 }

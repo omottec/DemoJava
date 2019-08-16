@@ -10,6 +10,8 @@ import java.util.List;
  * Created by omottec on 23/02/2017.
  */
 public class GenericTest {
+    public static class Animal {}
+    public static class Cat extends Animal {}
     public static void main(String[] args) {
         List noGenericList = new ArrayList();
         noGenericList.add(new Object());

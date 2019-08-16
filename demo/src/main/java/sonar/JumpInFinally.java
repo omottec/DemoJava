@@ -23,7 +23,7 @@ public class JumpInFinally {
             for (int i = 0; i < 10; i ++) {
                 System.out.println("doSomething " + i);
             }
-//            return;      // Noncompliant - prevents the RuntimeException from being propagated
+            return;      // Noncompliant - prevents the RuntimeException from being propagated
         }
     }
 }

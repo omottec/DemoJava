@@ -5,13 +5,23 @@ package demo;
  */
 public class IntegerTest {
     public static void main(String[] args) {
-        Integer i = 100;
-        Integer i1 = 100;
-        Integer i2 = 1000;
-        Integer i3 = 1000;
+        // java.lang.Integer.IntegerCache
+        // java.lang.Integer.valueOf(int)
+        Integer a = 100;
+        Integer a1 = 100;
 
-        System.out.println(i == i1);
-        System.out.println(i1 == i2);
-        System.out.println(i2 == i3);
+        Integer b = 1000;
+        Integer b1 = 1000;
+
+        Integer c = new Integer(100);
+        Integer c1 = new Integer(100);
+
+        Integer d = new Integer(1000);
+        Integer d1 = new Integer(1000);
+
+        System.out.println(a == a1);
+        System.out.println(b == b1);
+        System.out.println(c == c1);
+        System.out.println(d == d1);
     }
 }
